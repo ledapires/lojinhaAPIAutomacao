@@ -2,20 +2,11 @@ package modulos.produto;
 
 import dataFactory.ProdutoDataFactory;
 import dataFactory.UsuarioDataFactory;
-import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pojo.ComponentePojo;
-import pojo.ProdutoPojo;
-import pojo.UsuarioPojo;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import static io.restassured.RestAssured.*;
-import static io.restassured.matcher.RestAssuredMatchers.*;
 import static org.hamcrest.Matchers.*;
 
 @DisplayName("Testes de API Rest no módulo de Produto")
@@ -43,8 +34,6 @@ public class ProdutoTest {
     @Test
     @DisplayName("Validar que o valor do produto igual a 0.00 nao e permitido")
     public void testValidarLimitesZeradoProibidoValorProduto(){
-        // Tentar inserir um produto com valor 0.00 e validar que a mensagem de erro foi apresentada e o
-        // status code retornado foi 422
 
         given()
                 .contentType(ContentType.JSON)
